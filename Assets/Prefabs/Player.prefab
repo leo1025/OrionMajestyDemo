@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009c5ea32cfc5774ea42c95669b5558a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerSpeed: 20
 --- !u!143 &999520589248971270
 CharacterController:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   laser: {fileID: 5750383746551357991, guid: 6691d7535fa07d94c984c10e0ff60416, type: 3}
   shootOrigin: {fileID: 8042939846050133912}
   laserSpeed: 50
-  laserKillDist: 20
+  fireRate: 0.2
   laserDamage: 0
 --- !u!1 &999520589273887191
 GameObject:
