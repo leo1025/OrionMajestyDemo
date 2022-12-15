@@ -45,7 +45,6 @@ public class EnemyShoot : MonoBehaviour
         {
             yield return new WaitForSeconds(delay);
             playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-            UnityEngine.Debug.Log(playerTransform.position);
             BlasterVolley(15);
             t += delay;
         }
