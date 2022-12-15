@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1050056742534632835}
+  - component: {fileID: 367663374}
   m_Layer: 0
   m_Name: EnemyGrunt
   m_TagString: Untagged
@@ -130,6 +131,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &367663374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050056742534632832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cb257912220aa46a23e0dd038fd912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blast: {fileID: 5750383746551357991, guid: 982add2647327b044b0f7cdc6d15099b, type: 3}
+  bomb: {fileID: 887094198876268083, guid: 4c17e54a9ac63144a8bf231da8e0a498, type: 3}
+  blastSpeed: 10
+  bombSpeed: 5
+  origin: {fileID: 1050056742633550648}
+  bombTimer: 16
 --- !u!1 &1050056742633550649
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050056742633550649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.79}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
