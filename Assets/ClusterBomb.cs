@@ -38,7 +38,7 @@ public class ClusterBomb : MonoBehaviour
 
         Destroy(pulseBomb);
 
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < 6; i++) {
             float deg = 120f;
 
             for(int j = 0; j < 3; j++) {
@@ -49,9 +49,9 @@ public class ClusterBomb : MonoBehaviour
                 shotBomb.GetComponent<Rigidbody>().velocity = origin.rotation * bombVector * new Vector3(0, 0, 1) * -bombSpeed;
             }
 
-            origin.Rotate(new Vector3(0, 20, 0));
+            origin.Rotate(new Vector3(0, 30, 0));
 
-            yield return new WaitForSeconds(.15f);
+            yield return new WaitForSeconds(.33f);
         }
 
         yield return new WaitForSeconds(.25f);

@@ -77,6 +77,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 887094198876268083, guid: 4c17e54a9ac63144a8bf231da8e0a498, type: 3}
-  bombSpeed: 7
+  bombSpeed: 10
   origin: {fileID: 3621957846473622673}
   pulseTime: 0.8

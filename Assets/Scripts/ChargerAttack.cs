@@ -46,10 +46,18 @@ public class ChargerAttack : MonoBehaviour
         chargeWall.SetActive(true);
 
         float elapsed = 0f;
+        float bombIntervals = chargeTime/(float)(clusterTrail+1);
+        int droppedBombs = 0;
+
+        Vector3 startPos = origin.position;
 
         while(elapsed < chargeTime) {
             transform.position = Vector3.MoveTowards(transform.position, goal, elapsed / chargeTime);
             elapsed += Time.deltaTime;
+            if(elapsed > droppedBombs * bombIntervals && droppedBombs < clusterTrail) {
+                Instantiate(clusterBomb, startPos + (goal - startPos)/clusterTrail * droppedBombs, origin.rotation);
+                droppedBombs += 1;
+            }
             yield return null;
         }
 

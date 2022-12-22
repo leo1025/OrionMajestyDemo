@@ -86,7 +86,9 @@ MonoBehaviour:
   origin: {fileID: 1255819094}
   blast: {fileID: 5750383746551357991, guid: 982add2647327b044b0f7cdc6d15099b, type: 3}
   chargeWall: {fileID: 6037576778694869386}
-  clusterBomb: {fileID: 0}
+  clusterBomb: {fileID: 3621957847012862536, guid: b4af8b81e86dc2e479f5f8b94e479fd2,
+    type: 3}
+  clusterTrail: 3
 --- !u!1 &4474034676288875214
 GameObject:
   m_ObjectHideFlags: 0
