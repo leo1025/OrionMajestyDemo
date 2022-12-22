@@ -14,6 +14,7 @@ public class ChargerAttack : MonoBehaviour
     [SerializeField] GameObject blast;
     [SerializeField] GameObject chargeWall;
     [SerializeField] GameObject clusterBomb;
+    [SerializeField] int clusterTrail;
 
     private bool targeting = true;
     private Transform target;
@@ -23,6 +24,7 @@ public class ChargerAttack : MonoBehaviour
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
         StartCoroutine(AttackPattern());
+        StartCoroutine(ShootingPattern());
     }
 
     // Update is called once per frame
@@ -39,6 +41,8 @@ public class ChargerAttack : MonoBehaviour
     // Launch the charger in facing direction
     IEnumerator Charge(Vector3 goal)
     {
+        yield return new WaitForSeconds(.5f);
+
         chargeWall.SetActive(true);
 
         float elapsed = 0f;
@@ -52,6 +56,29 @@ public class ChargerAttack : MonoBehaviour
         transform.position = goal;
 
         chargeWall.SetActive(false);
+    }
+
+    IEnumerator ShootingPattern()
+    {
+        while(true) {
+            if(targeting) {
+                yield return new WaitForSeconds(1f);
+
+                for(int i = 0; i < 4; i++) {
+                    float interval = -9 + (i * 6);
+
+                    Vector3 blastVector = (origin.position - target.position).normalized;
+                    Quaternion blastQuaternion = Quaternion.LookRotation(blastVector);
+                    Quaternion rot = Quaternion.Euler(new Vector3(0, interval, 0));
+
+                    GameObject shotLaser = Instantiate(blast, origin.position, rot * blastQuaternion);
+
+                    shotLaser.GetComponent<Rigidbody>().velocity = rot * blastVector * -8;
+                }
+            } else {
+                yield return null;
+            }
+        }
     }
 
     IEnumerator AttackPattern()
@@ -68,19 +95,6 @@ public class ChargerAttack : MonoBehaviour
             else if(!targeting && time > chargeCoolDown) {
                 targeting = true;
                 time = 0f;
-            }
-            else if(targeting && Mathf.Floor(time) % 5 == 0) {
-                for(int i = 0; i < 4; i++) {
-                    float interval = i * 8 + (-4);
-
-                    Vector3 blastVector = (origin.position - target.position).normalized;
-                    Quaternion blastQuaternion = Quaternion.LookRotation(blastVector);
-                    Quaternion rot = Quaternion.Euler(new Vector3(0, interval, 0));
-
-                    GameObject shotLaser = Instantiate(blast, origin.position, rot * blastQuaternion);
-
-                    shotLaser.GetComponent<Rigidbody>().velocity = rot * blastVector * -8;
-                }
             }
             yield return null;
         }
